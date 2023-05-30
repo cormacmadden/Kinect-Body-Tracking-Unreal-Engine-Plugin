@@ -1,9 +1,12 @@
-# Azure Kinect for Unreal Engine
-
-![](./Docs/kinect.png)
+# Azure Kinect Plugin for Unreal Engine
 
 Exposes Azure Kinect Support for integration into Unreal Engine Applications.
-Mainly for depth and color textures creation from Kinect's raw feed.
+
+Updated Version of nama-gatsu's Azure Kinect Unreal Engine Plugin.
+ - Fixed Importing Binaries Issues
+ - Added Translation to skeletal tracking
+
+![]()
 
 ## Prerequisites
 
@@ -41,7 +44,7 @@ Mainly for depth and color textures creation from Kinect's raw feed.
 
 ### Skeleton tracking
 
-![](./Docs/skeletonAnim.gif)
+![]()
 
 * Bone mapping node in Anim Graph
 
@@ -73,7 +76,7 @@ Depth pixel from Azure Kinect SDK is originally a single `uint16` in millimetor.
 # Reference
 
 Existing plugin for Azure Kinect
-* [secretlocation/azure-kinect-unreal](https://github.com/secretlocation/azure-kinect-unreal/)
+
     * Body tracking only, not support point cloud and texture(s)
     * Referred a lot from this repo
 

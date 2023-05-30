@@ -51,10 +51,15 @@ void FAnimNode_AzureKinectPose::EvaluateComponentSpace_AnyThread(FComponentSpace
 	{	
 		FTransform Transform = Output.Pose.GetComponentSpaceTransform(BoneTransform.BoneIndex);
 		FVector3d rot = FVector3d(90.0, 0.0, 0.0);
+
+		//FVector3d rota = BoneTransform.Transform;
 		FRotator3d rotator = BoneTransform.Transform.Rotator();
-		FVector3d rotated = rotator.RotateVector(rot);
-		FRotator3d rotated2 = rotated.ToOrientationRotator();
-		FQuat4d quaternion = rotated2.Quaternion();
+		rotator.Add(90.0, 0.0, 0.0);
+		if (BoneTransform.BoneIndex == 3) {
+			rotator.Add(-180.0, 0.0, 0.0);
+		}
+		//FRotator3d rotated2 = rotated.ToOrientationRotator();
+		FQuat4d quaternion = rotator.Quaternion();
 		Transform.SetRotation(quaternion);
 		if (BoneTransform.BoneIndex == 1) {
 			Transform.SetTranslation(BoneTransform.Transform.GetTranslation());
