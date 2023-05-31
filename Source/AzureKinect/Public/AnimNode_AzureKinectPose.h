@@ -20,6 +20,7 @@ struct AZUREKINECT_API FAnimNode_AzureKinectPose : public FAnimNode_Base
 	GENERATED_BODY()
 
 public:
+
 	FAnimNode_AzureKinectPose();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Transform", meta = (PinShownByDefault))
