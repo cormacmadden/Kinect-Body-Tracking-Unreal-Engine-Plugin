@@ -63,20 +63,13 @@ void FAnimNode_AzureKinectPose::EvaluateComponentSpace_AnyThread(FComponentSpace
 		FTransform Transform = Output.Pose.GetComponentSpaceTransform(BoneTransform.BoneIndex);
 
 		FRotator3d rotator = BoneTransform.Transform.Rotator();
-		//if (BoneTransform.BoneIndex == 2) {
-			//rotator = FVector3d(0.0, 0.0, 0.0).Rotation();
-			rotator.Add(90.0, 00.0, 00.0);
-		//}
-		//FRotator3d rotated2 = rotated.ToOrientationRotator();
-		
 		if (BoneTransform.BoneIndex == 1) {
-			//UE_LOG(AzureKinectAnimNodeLog, Warning, TEXT("Kinect Bone Index: %d"), BoneTransform.BoneIndex.GetInt());
-			//EKinectBodyJoint JointIndex = static_cast<EKinectBodyJoint>(BoneTransform.BoneIndex.GetInt());
-			//UE_LOG(AzureKinectAnimNodeLog, Warning, TEXT("UE Bone Name %s"), *BonesToModify[JointIndex].BoneName.ToString());
-			//UE_LOG(AzureKinectAnimNodeLog, Warning, TEXT("Bone 1 rotation: %s "), rotator.ToString());
-			//rotator.Add(00.0, 90.0, 0.0);
-		Transform.SetTranslation(BoneTransform.Transform.GetTranslation());
-			//Transform.Rotat
+			float xtrans = BoneTransform.Transform.GetTranslation().X;
+			float ytrans = BoneTransform.Transform.GetTranslation().Y;
+			float ztrans = BoneTransform.Transform.GetTranslation().Z;
+			
+			FVector3d fixedTranslation = FVector3d(ytrans, -ztrans, -xtrans);
+			Transform.SetTranslation(fixedTranslation);
 		}
 		FQuat4d quaternion = rotator.Quaternion();
 		Transform.SetRotation(quaternion);

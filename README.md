@@ -6,7 +6,7 @@ Updated Version of nama-gatsu's Azure Kinect Unreal Engine Plugin.
  - Fixed Importing Binaries Issues
  - Added Translation to skeletal tracking
 
-![]()
+![](./Docs/Sequence 01.gif)
 
 ## Prerequisites
 
