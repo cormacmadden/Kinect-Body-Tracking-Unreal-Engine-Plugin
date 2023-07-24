@@ -11,9 +11,10 @@ Updated Version of nama-gatsu's Azure Kinect Unreal Engine Plugin.
 * Platform: Win64
 * Unreal Engine Version 5.2
 * Download and Install `Azure Kinect SDK v1.4.1` from [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)
-    * Create a System Environment variable `AZUREKINECT_SDK` that points to the Azure Kinect SDK root path eg: "C:\Program Files\Azure Kinect SDK v1.4.1"
 * Download and Install `Azure Kinect Body Tracking SDK v1.1.0` from [here](https://docs.microsoft.com/en-us/azure/Kinect-dk/body-sdk-download)
-    * Create a System Environment variable `AZUREKINECT_BODY_SDK` that points to the Azure Kinect Body Tracking SDK root path eg: "C:\Program Files\Azure Kinect Body Tracking SDK"
+* Create the following two System Environment variables:
+    * AZUREKINECT_SDK that points to the Azure Kinect Body Tracking SDK root path `C:\Program Files\Azure Kinect SDK v1.4.1`
+    * AZUREKINECT_BODY_SDK that points to the Azure Kinect Body Tracking SDK root path `C:\Program Files\Azure Kinect Body Tracking SDK`
 * Add the following three paths to the PATH system environment variable
     * `C:\Program Files\Azure Kinect Body Tracking SDK\sdk\windows-desktop\amd64\release\bin`
     * `C:\Program Files\Azure Kinect SDK v1.4.1\sdk\windows-desktop\amd64\release\bin`
