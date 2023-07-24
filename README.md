@@ -1,5 +1,4 @@
 # Azure Kinect Plugin for Unreal Engine
-
 Exposes Azure Kinect Support for integration into Unreal Engine Applications.
 
 Updated Version of nama-gatsu's Azure Kinect Unreal Engine Plugin.
@@ -8,21 +7,19 @@ Updated Version of nama-gatsu's Azure Kinect Unreal Engine Plugin.
 
 ![](./Docs/Sequence%2001.gif)
 
-## Prerequisites
-
+## Setup Instructions
 * Platform: Win64
-* Dependencies:
-    * `Azure Kinect SDK v1.4.1` is installed
-        * Download from [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)
-        * An env variable `AZUREKINECT_SDK` that points to the Azure Kinect SDK root path should be registered. 
-    * `Azure Kinect Body Tracking SDK v1.1.0` is installed
-        * Download from [here](https://docs.microsoft.com/en-us/azure/Kinect-dk/body-sdk-download)
-        * An env variable `AZUREKINECT_BODY_SDK` that points to the Azure Kinect Body Tracking SDK root path should be registered. 
-    * This plugin cannot be neither built nor open without the SDKs and paths above. 
-        * [AzureKinect.Build.cs](https://github.com/nama-gatsuo/AzureKinectForUE/blob/master/Source/AzureKinect/AzureKinect.Build.cs) describes how it resolves dependent paths.
-* Unreal Engine 4.27~
-    * Only tested with 4.27. May work with lower.
-
+* Unreal Engine Version 5.2
+* Download and Install `Azure Kinect SDK v1.4.1` from [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)
+    * Create a System Environment variable `AZUREKINECT_SDK` that points to the Azure Kinect SDK root path eg: "C:\Program Files\Azure Kinect SDK v1.4.1"
+* Download and Install `Azure Kinect Body Tracking SDK v1.1.0` from [here](https://docs.microsoft.com/en-us/azure/Kinect-dk/body-sdk-download)
+    * Create a System Environment variable `AZUREKINECT_BODY_SDK` that points to the Azure Kinect Body Tracking SDK root path eg: "C:\Program Files\Azure Kinect Body Tracking SDK"
+* Add the following three paths to the PATH system environment variable
+    * `C:\Program Files\Azure Kinect Body Tracking SDK\sdk\windows-desktop\amd64\release\bin`
+    * `C:\Program Files\Azure Kinect SDK v1.4.1\sdk\windows-desktop\amd64\release\bin`
+    * `C:\Program Files\Azure Kinect SDK v1.4.1\sdk\netstandard2.0\release`
+* Create a Plugins folder inside your unreal project folder (Where the .uprojrct is located) 
+* Clone this repo into the plugins folder.
 ## Features
 
 ### In-Editor activation
@@ -71,14 +68,6 @@ uint16 DepthSample = G << 8 | R;  // millimetor
 ```
 
 Depth pixel from Azure Kinect SDK is originally a single `uint16` in millimetor. But `RenderTarget2D` can't store `uint16` as texture (`EPixelFormat::PF_R16_UINT` doesn't work for RenderTarget). 
-
-
-# Reference
-
-Existing plugin for Azure Kinect
-
-    * Body tracking only, not support point cloud and texture(s)
-    * Referred a lot from this repo
 
 # License
 ## MIT License
